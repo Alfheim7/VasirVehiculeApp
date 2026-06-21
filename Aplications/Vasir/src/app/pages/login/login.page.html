@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Vasir - Iniciar Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <div class="ion-text-center ion-margin-bottom">
+      <img src="assets/shapes.svg" alt="Vasir Logo" style="width: 100px; height: auto;" />
+      <h2>Bienvenido</h2>
+    </div>
+
+    <ion-item lines="full" class="ion-margin-bottom">
+      <ion-input label="Usuario" labelPlacement="floating" type="text" [(ngModel)]="usuario" placeholder="Ingresa tu usuario"></ion-input>
+    </ion-item>
+
+    <ion-item lines="full" class="ion-margin-bottom">
+      <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="contrasena" placeholder="Ingresa tu contraseña"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" shape="round" (click)="onLogin()" class="ion-margin-top">
+      Iniciar Sesión
+    </ion-button>
+
+    <ion-button expand="block" fill="clear" color="secondary" (click)="goToRegister()">
+      ¿No tienes cuenta? Regístrate aquí
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "Vasir",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

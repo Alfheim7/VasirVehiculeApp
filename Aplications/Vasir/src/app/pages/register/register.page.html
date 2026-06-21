@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear Cuenta - Vasir</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onRegister()">
+    
+    <ion-list-header>
+      <ion-label>Datos Personales (Driver)</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="full">
+      <ion-input label="Nombre Completo" labelPlacement="floating" type="text" [(ngModel)]="formData.Nombre" name="Nombre" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Nombre de Usuario" labelPlacement="floating" type="text" [(ngModel)]="formData.Usuario" name="Usuario" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Correo Electrónico" labelPlacement="floating" type="email" [(ngModel)]="formData.Correo" name="Correo" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Teléfono" labelPlacement="floating" type="number" [(ngModel)]="formData.Telefono" name="Telefono" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="formData.Contrasena" name="Contrasena" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Confirmar Contraseña" labelPlacement="floating" type="password" [(ngModel)]="formData.ConfirmaContrasena" name="ConfirmaContrasena" required></ion-input>
+    </ion-item>
+
+    <ion-list-header class="ion-margin-top">
+      <ion-label>Documentación Obligatoria (Details)</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="full">
+      <ion-input label="Número de Licencia" labelPlacement="floating" type="text" [(ngModel)]="formData.Licencia" name="Licencia" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Expedición Licencia" labelPlacement="floating" type="date" [(ngModel)]="formData.FechExpLicencia" name="FechExpLicencia" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Control Tecnicomecánica" labelPlacement="floating" type="text" [(ngModel)]="formData.Tecnomecanica" name="Tecnomecanica" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Última Revisión" labelPlacement="floating" type="date" [(ngModel)]="formData.FechUltRevision" name="FechUltRevision" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-checkbox [(ngModel)]="formData.TermsYCondic" name="TermsYCondic" justify="start">Acepto términos y condiciones</ion-checkbox>
+    </ion-item>
+
+    <ion-button expand="block" shape="round" type="submit" class="ion-margin-top">
+      Registrar Conductor
+    </ion-button>
+  </form>
+</ion-content>

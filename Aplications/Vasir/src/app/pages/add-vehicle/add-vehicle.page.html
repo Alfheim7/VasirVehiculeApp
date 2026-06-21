@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Vasir - Añadir Vehículo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="welcome-banner ion-margin-bottom" *ngIf="driverName">
+    <h5>Conductor: {{ driverName }} (ID: {{ driverId }})</h5>
+    <p>Sincronización total con la tabla corregida AddVehicule.</p>
+  </div>
+
+  <form (ngSubmit)="onAddVehicle()">
+    
+    <ion-list-header>
+      <ion-label color="primary">Datos Relacionales (Catálogo Maestro)</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="full">
+      <ion-select label="Tipo de Vehículo" [(ngModel)]="vehicleData.TipoVehiculo" name="TipoVehiculo" required placeholder="Seleccione el tipo">
+        <ion-select-option value="Motocicleta">Motocicleta</ion-select-option>
+        <ion-select-option value="Automóvil">Automóvil</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-select label="Marca" [(ngModel)]="selectedBrand" name="selectedBrand" (ionChange)="onBrandChange()" required placeholder="Seleccione Marca">
+        <ion-select-option *ngFor="let brand of availableBrands" [value]="brand">{{ brand }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-select label="Referencia" [(ngModel)]="selectedReference" name="selectedReference" [disabled]="!selectedBrand" (ionChange)="onReferenceChange()" required placeholder="Seleccione Referencia">
+        <ion-select-option *ngFor="let ref of filteredReferences" [value]="ref">{{ ref }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-select label="Modelo (Año)" [(ngModel)]="selectedModel" name="selectedModel" [disabled]="!selectedReference" (ionChange)="onModelChange()" required placeholder="Seleccione Modelo">
+        <ion-select-option *ngFor="let mod of filteredModels" [value]="mod">{{ mod }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full" color="light" *ngIf="vehicleData.IdVehicules">
+      <ion-note slot="start">ID Catálogo Vinculado:</ion-note>
+      <ion-text color="success"><strong>{{ vehicleData.IdVehicules }}</strong></ion-text>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Placa" labelPlacement="floating" type="text" [(ngModel)]="vehicleData.Placa" name="Placa" placeholder="Ej: ABC123" required></ion-input>
+    </ion-item>
+
+    <ion-list-header class="ion-margin-top">
+      <ion-label color="primary">Información de Uso e Historial Técnico</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="full">
+      <ion-input label="Kilometraje Actual (Km)" labelPlacement="floating" type="number" [(ngModel)]="vehicleData.Km" name="Km" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Último Mantenimiento General" labelPlacement="floating" type="date" [(ngModel)]="vehicleData.UltMantenimientoGen" name="UltMantenimientoGen" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-input label="Último Reabastecimiento" labelPlacement="floating" type="date" [(ngModel)]="vehicleData.UltReabastecimiento" name="UltReabastecimiento" required></ion-input>
+    </ion-item>
+
+    <ion-list-header class="ion-margin-top">
+      <ion-label color="primary">Checklist de Detalles Técnicos</ion-label>
+    </ion-list-header>
+
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioAceite" name="CambioAceite">Cambio Aceite</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioFiltroAceite" name="CambioFiltroAceite">Cambio Filtro Aceite</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioFiltroAire" name="CambioFiltroAire">Cambio Filtro Aire</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioGuayasFreno" name="CambioGuayasFreno">Cambio Guayas Freno</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioGuayasEmbrague" name="CambioGuayasEmbrague">Cambio Guayas Embrague</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioPastFrenoDelantero" name="CambioPastFrenoDelantero">Cambio Pastilla Freno Delantero</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioPastFrenoTrasero" name="CambioPastFrenoTrasero">Cambio Pastilla Freno Trasero</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioKitArrastre" name="CambioKitArrastre">Cambio Kit Arrastre</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioLiquidoFrenos" name="CambioLiquidoFrenos">Cambio Líquido Frenos</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioBujias" name="CambioBujias">Cambio Bujías</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioManiguetaFreno" name="CambioManiguetaFreno">Cambio Manigueta Freno</ion-checkbox></ion-item>
+    <ion-item lines="none"><ion-checkbox [(ngModel)]="vehicleData.CambioManiguetaEmbrague" name="CambioManiguetaEmbrague">Cambio Manigueta Embrague</ion-checkbox></ion-item>
+
+    <ion-button expand="block" shape="round" type="submit" class="ion-margin-top ion-margin-bottom">
+      Guardar Vehículo en SQL Server
+    </ion-button>
+  </form>
+</ion-content>
