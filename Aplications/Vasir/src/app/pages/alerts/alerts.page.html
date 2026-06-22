@@ -1,0 +1,10 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-title>Alertas</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell with-bottom-nav"><div class="section-heading"><h1>Alertas predictivas</h1><p>Revisa próximos mantenimientos y vencimientos legales.</p></div>
+  <section class="alert-list">
+    <article class="predictive-alert urgent"><ion-icon name="alert-circle-outline"></ion-icon><div><strong>Cambio de aceite urgente</strong><span>Faltan menos de 200 km para el próximo cambio recomendado.</span></div></article>
+    <article class="predictive-alert warning"><ion-icon name="calendar-outline"></ion-icon><div><strong>SOAT próximo a vencer</strong><span>Vence en 30 días.</span></div></article>
+    <article class="predictive-alert warning"><ion-icon name="construct-outline"></ion-icon><div><strong>Revisión tecnomecánica pendiente</strong><span>Programa tu próxima revisión.</span></div></article>
+    <article class="predictive-alert success"><ion-icon name="checkmark-circle-outline"></ion-icon><div><strong>Licencia al día</strong><span>No requiere renovación por ahora.</span></div></article>
+  </section>
+  <ion-button expand="block" routerLink="/maintenance">Agregar nuevo mantenimiento</ion-button>
+</main></ion-content><app-bottom-nav></app-bottom-nav>

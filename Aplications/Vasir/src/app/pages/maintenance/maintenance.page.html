@@ -1,0 +1,6 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-buttons slot="start"><ion-back-button defaultHref="/home"></ion-back-button></ion-buttons><ion-title>Mantenimiento</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell with-bottom-nav"><div class="section-heading"><h1>Repuestos o servicios realizados</h1><p>Selecciona las actividades realizadas para actualizar el historial.</p></div>
+  <section class="form-card maintenance-meta"><ion-item><ion-input label="Fecha" labelPlacement="stacked" type="date" [(ngModel)]="date"></ion-input></ion-item><ion-item><ion-input label="Kilometraje" labelPlacement="stacked" type="number" [(ngModel)]="km"></ion-input></ion-item></section>
+  <section class="summary-card checklist"><ion-item *ngFor="let item of items" lines="none"><ion-checkbox [(ngModel)]="item.checked" justify="space-between">{{ item.label }}</ion-checkbox></ion-item></section>
+  <ion-button expand="block" (click)="save()">Guardar mantenimiento</ion-button>
+</main></ion-content><app-bottom-nav></app-bottom-nav>

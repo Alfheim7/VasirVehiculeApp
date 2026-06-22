@@ -7,8 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <form (ngSubmit)="onRegister()">
+<ion-content>
+  <main class="page-shell register-shell">
+  <div class="register-intro">
+    <img src="assets/vasir-logo.svg" alt="" />
+    <div><h1>Regístrate en Vasir</h1><p>Crea tu cuenta para empezar a gestionar tu vehículo.</p></div>
+  </div>
+  <form (ngSubmit)="onRegister()" class="form-card">
     
     <ion-list-header>
       <ion-label>Datos Personales (Driver)</ion-label>
@@ -66,4 +71,6 @@
       Registrar Conductor
     </ion-button>
   </form>
+  <p class="login-link">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
+  </main>
 </ion-content>

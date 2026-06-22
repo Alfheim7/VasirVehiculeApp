@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule, AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/auth';
+import { AppDataService } from '../../services/app-data';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -57,6 +58,7 @@ export class AddVehiclePage implements OnInit {
 
   constructor(
     private authService: AuthService, 
+    private appData: AppDataService,
     private router: Router, 
     private alertCtrl: AlertController
   ) { }
@@ -79,7 +81,19 @@ export class AddVehiclePage implements OnInit {
       // Extraemos marcas únicas basadas en la respuesta
       this.availableBrands = [...new Set(this.fullCatalog.map(item => item.Marca))];
     } catch (err) {
-      this.presentAlert('Error de Catálogo', 'No se pudo leer el catálogo maestro de vehículos.');
+      if (this.authService.isDemoSession()) {
+        this.fullCatalog = [
+          { Id: 1, Marca: 'Yamaha', Referencia: 'FZ 2.0', Modelo: 2022 },
+          { Id: 2, Marca: 'Yamaha', Referencia: 'MT-03', Modelo: 2025 },
+          { Id: 3, Marca: 'Toyota', Referencia: 'Corolla Cross', Modelo: 2025 },
+          { Id: 4, Marca: 'Mazda', Referencia: 'CX-30', Modelo: 2024 },
+          { Id: 5, Marca: 'Renault', Referencia: 'Duster', Modelo: 2025 },
+          { Id: 6, Marca: 'Kia', Referencia: 'Picanto', Modelo: 2024 }
+        ];
+        this.availableBrands = [...new Set(this.fullCatalog.map(item => item.Marca))];
+      } else {
+        this.presentAlert('Error de Catálogo', 'No se pudo leer el catálogo maestro de vehículos.');
+      }
     }
   }
 
@@ -171,7 +185,19 @@ export class AddVehiclePage implements OnInit {
     console.log("📦 [AddVehiclePage] Payload final listo para enviarse a Node.js:", this.vehicleData);
 
     try {
-      const response = await this.authService.addVehiculeUser(this.vehicleData);
+      const response = this.authService.isDemoSession()
+        ? { success: true, message: 'Vehículo guardado en modo demostración.' }
+        : await this.authService.addVehiculeUser(this.vehicleData);
+      this.appData.updateVehicle({
+        type: this.vehicleData.TipoVehiculo,
+        brand: this.vehicleData.Marca,
+        reference: this.vehicleData.Referencia,
+        model: Number(this.vehicleData.Modelo),
+        plate: this.vehicleData.Placa,
+        km: Number(this.vehicleData.Km),
+        lastMaintenance: this.vehicleData.UltMantenimientoGen,
+        lastFuelDate: this.vehicleData.UltReabastecimiento
+      });
       console.log("📥 [AddVehiclePage] Respuesta exitosa del servidor:", response);
 
       const successAlert = await this.alertCtrl.create({

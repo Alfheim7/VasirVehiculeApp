@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-buttons slot="start"><ion-back-button defaultHref="/home"></ion-back-button></ion-buttons><ion-title>Mi vehículo</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell with-bottom-nav">
+  <h1>Hola, {{ data.driverName }}</h1>
+  <section class="summary-card vehicle-hero">
+    <div class="vehicle-icon"><ion-icon name="car-sport-outline"></ion-icon></div>
+    <div><span>Mi vehículo</span><h2>{{ data.vehicle.brand }} {{ data.vehicle.reference }}</h2><p>{{ data.vehicle.type }} · Modelo {{ data.vehicle.model }}</p><strong>{{ data.vehicle.plate }}</strong></div>
+  </section>
+  <section class="summary-card info-list">
+    <h2>Información</h2>
+    <div><span>Kilometraje actual</span><strong>{{ data.vehicle.km | number:'1.0-0' }} km</strong></div>
+    <div><span>Último mantenimiento</span><strong>{{ data.vehicle.lastMaintenance | date:'dd/MM/yyyy' }}</strong></div>
+    <div><span>Próximo mantenimiento</span><strong>{{ data.vehicle.nextMaintenanceKm | number:'1.0-0' }} km</strong></div>
+  </section>
+  <section class="summary-card info-list">
+    <h2>Documentos</h2>
+    <div><span>Licencia</span><strong class="text-success">{{ data.documents.license }}</strong></div>
+    <div><span>SOAT</span><strong>{{ data.documents.soat }}</strong></div>
+    <div><span>Tecnomecánica</span><strong>{{ data.documents.technicalReview }}</strong></div>
+  </section>
+  <ion-button expand="block" routerLink="/update-vehicle">Actualizar información</ion-button>
+  <ion-button expand="block" fill="clear" routerLink="/documents">Editar información legal</ion-button>
+</main></ion-content><app-bottom-nav></app-bottom-nav>

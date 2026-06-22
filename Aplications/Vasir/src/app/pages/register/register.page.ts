@@ -50,7 +50,7 @@ export class RegisterPage {
       await this.authService.registerDriver(this.formData);
       const successAlert = await this.alertCtrl.create({
         header: 'Registro Exitoso',
-        message: 'El conductor y sus detalles relacionales han sido guardados localmente.',
+        message: 'El conductor fue registrado correctamente en Vasir.',
         buttons: [{
           text: 'Ir al Login',
           handler: () => {

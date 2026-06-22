@@ -4,13 +4,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
+  <main class="page-shell add-vehicle-shell">
   <div class="welcome-banner ion-margin-bottom" *ngIf="driverName">
     <h5>Conductor: {{ driverName }} (ID: {{ driverId }})</h5>
     <p>Sincronización total con la tabla corregida AddVehicule.</p>
   </div>
 
-  <form (ngSubmit)="onAddVehicle()">
+  <form (ngSubmit)="onAddVehicle()" class="form-card">
     
     <ion-list-header>
       <ion-label color="primary">Datos Relacionales (Catálogo Maestro)</ion-label>
@@ -87,4 +88,5 @@
       Guardar Vehículo en SQL Server
     </ion-button>
   </form>
+  </main>
 </ion-content>

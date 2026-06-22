@@ -1,14 +1,24 @@
-<ion-header>
-  <ion-toolbar color="success">
-    <ion-title>Vasir - Panel Principal</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding ion-text-center">
-  <h2>¡Sesión Iniciada con Éxito!</h2>
-  <p>Has hecho match con los datos almacenados de forma relacional.</p>
-  
-  <ion-button expand="block" color="danger" fill="outline" routerLink="/login" class="ion-margin-top">
-    Cerrar Sesión
-  </ion-button>
+<ion-header class="ion-no-border"><ion-toolbar><ion-title>Vasir</ion-title><ion-icon name="person-circle-outline" slot="end" routerLink="/profile"></ion-icon></ion-toolbar></ion-header>
+<ion-content>
+  <main class="page-shell dashboard-shell">
+    <h1>Hola, {{ data.driverName }}</h1>
+    <section class="module-grid">
+      <a class="module-card" routerLink="/vehicle"><span class="icon-bubble"><ion-icon name="car-sport-outline"></ion-icon></span><strong>Mi vehículo</strong><span class="blue-shape"></span></a>
+      <a class="module-card" routerLink="/maintenance"><span class="icon-bubble"><ion-icon name="construct-outline"></ion-icon></span><strong>Mantenimientos</strong><span class="blue-shape"></span></a>
+      <a class="module-card" routerLink="/alerts"><span class="icon-bubble"><ion-icon name="notifications-outline"></ion-icon></span><strong>Alertas</strong><span class="blue-shape"></span></a>
+      <a class="module-card" routerLink="/documents"><span class="icon-bubble"><ion-icon name="folder-open-outline"></ion-icon></span><strong>Documentos</strong><span class="blue-shape"></span></a>
+    </section>
+    <section class="summary-card two-column">
+      <div><span>Kilometraje actual</span><strong>{{ data.vehicle.km | number:'1.0-0' }} km</strong></div>
+      <div><span>Próximo mantenimiento</span><strong>{{ data.vehicle.nextMaintenanceKm | number:'1.0-0' }} km</strong></div>
+    </section>
+    <section class="status-card">
+      <div class="status-head"><strong>Estado de mantenimiento</strong><span>{{ progress }}%</span></div>
+      <div class="progress"><span [style.width.%]="progress"></span></div>
+      <small>{{ data.vehicle.km | number:'1.0-0' }} / {{ data.vehicle.nextMaintenanceKm | number:'1.0-0' }} km</small>
+    </section>
+    <a class="notice success" routerLink="/documents"><ion-icon name="checkmark-circle-outline"></ion-icon>Licencia al día</a>
+    <a class="notice warning" routerLink="/alerts"><ion-icon name="alert-circle-outline"></ion-icon>SOAT vence en 30 días</a>
+  </main>
 </ion-content>
+<app-bottom-nav></app-bottom-nav>

@@ -1,0 +1,12 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-buttons slot="start"><ion-back-button defaultHref="/home"></ion-back-button></ion-buttons><ion-title>Documentos</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell with-bottom-nav"><div class="section-heading"><span>Información legal</span><h1>Datos de circulación</h1><p>Registra tus documentos y recibe alertas antes de su vencimiento.</p></div>
+  <section class="form-card">
+    <ion-item><ion-icon name="document-text-outline" slot="start"></ion-icon><ion-input label="Licencia de conducción" labelPlacement="stacked" [(ngModel)]="form.license"></ion-input></ion-item>
+    <ion-item><ion-icon name="calendar-outline" slot="start"></ion-icon><ion-input label="Estado de la licencia" labelPlacement="stacked" [(ngModel)]="form.licenseStatus"></ion-input></ion-item>
+    <ion-item><ion-icon name="document-text-outline" slot="start"></ion-icon><ion-input label="SOAT" labelPlacement="stacked" [(ngModel)]="form.soat"></ion-input></ion-item>
+    <ion-item><ion-icon name="calendar-outline" slot="start"></ion-icon><ion-input label="Vencimiento del SOAT" labelPlacement="stacked" type="date" [(ngModel)]="form.soatExpiration"></ion-input></ion-item>
+    <ion-item><ion-icon name="construct-outline" slot="start"></ion-icon><ion-input label="Revisión tecnomecánica" labelPlacement="stacked" [(ngModel)]="form.technicalReview"></ion-input></ion-item>
+    <ion-item><ion-icon name="calendar-outline" slot="start"></ion-icon><ion-input label="Próxima revisión" labelPlacement="stacked" type="date" [(ngModel)]="form.technicalExpiration"></ion-input></ion-item>
+    <ion-button expand="block" (click)="save()">Guardar información legal</ion-button>
+  </section>
+</main></ion-content><app-bottom-nav></app-bottom-nav>

@@ -1,0 +1,13 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-buttons slot="start"><ion-back-button defaultHref="/vehicle"></ion-back-button></ion-buttons><ion-title>Información del vehículo</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell"><div class="section-heading"><span>Mi vehículo</span><h1>Actualizar datos de uso</h1><p>Ingresa la información para calcular alertas y próximas revisiones.</p></div>
+  <section class="form-card">
+    <ion-item><ion-input label="Marca" labelPlacement="stacked" [(ngModel)]="form.brand"></ion-input></ion-item>
+    <ion-item><ion-input label="Referencia" labelPlacement="stacked" [(ngModel)]="form.reference"></ion-input></ion-item>
+    <ion-item><ion-input label="Modelo" labelPlacement="stacked" type="number" [(ngModel)]="form.model"></ion-input></ion-item>
+    <ion-item><ion-input label="Kilometraje actual" labelPlacement="stacked" type="number" [(ngModel)]="form.km"></ion-input></ion-item>
+    <ion-item><ion-input label="Último mantenimiento" labelPlacement="stacked" type="date" [(ngModel)]="form.lastMaintenance"></ion-input></ion-item>
+    <ion-item><ion-input label="Último reabastecimiento" labelPlacement="stacked" type="date" [(ngModel)]="form.lastFuelDate"></ion-input></ion-item>
+    <ion-item><ion-input label="Próximo mantenimiento (km)" labelPlacement="stacked" type="number" [(ngModel)]="form.nextMaintenanceKm"></ion-input></ion-item>
+    <ion-button expand="block" (click)="save()">Guardar</ion-button>
+  </section>
+</main></ion-content>
