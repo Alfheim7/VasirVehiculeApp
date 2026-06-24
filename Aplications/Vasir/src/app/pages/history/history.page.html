@@ -1,0 +1,6 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-title>Historial</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell with-bottom-nav"><div class="section-heading"><h1>Historial clínico del vehículo</h1><p>Consulta mantenimientos, reparaciones y registros anteriores.</p></div>
+  <div class="filter-row"><button [class.active]="filter === 'all'" (click)="filter = 'all'">Todos</button><button [class.active]="filter === 'maintenance'" (click)="filter = 'maintenance'">Mantenimientos</button><button [class.active]="filter === 'fuel'" (click)="filter = 'fuel'">Combustible</button><button [class.active]="filter === 'document'" (click)="filter = 'document'">Documentos</button></div>
+  <section class="history-list"><article *ngFor="let item of entries" class="summary-card"><div class="history-icon"><ion-icon [name]="item.type === 'fuel' ? 'water-outline' : item.type === 'document' ? 'document-text-outline' : 'construct-outline'"></ion-icon></div><div><h2>{{ item.title }}</h2><p>{{ item.date }}</p><strong>{{ item.detail }}</strong></div><span class="badge" [class.done]="item.status === 'Realizado'">{{ item.status }}</span></article></section>
+  <a class="fab" routerLink="/maintenance">+</a>
+</main></ion-content><app-bottom-nav></app-bottom-nav>

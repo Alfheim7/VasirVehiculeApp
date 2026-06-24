@@ -21,6 +21,31 @@ export class AuthService {
     return driver ? JSON.parse(driver) : null;
   }
 
+  startDemoSession(): any {
+    const driver = {
+      success: true,
+      Id: 1,
+      Nombre: 'Usuario',
+      Usuario: 'demo',
+      hasVehicles: true,
+      demo: true
+    };
+    this.setCurrentDriver(driver);
+    localStorage.setItem('user', JSON.stringify({ idDriver: 1, nombre: 'Usuario', demo: true }));
+    localStorage.setItem('hasVehicles', 'true');
+    return driver;
+  }
+
+  isDemoSession(): boolean {
+    return !!this.getCurrentDriver()?.demo;
+  }
+
+  logout(): void {
+    localStorage.removeItem(this.CURRENT_DRIVER_KEY);
+    localStorage.removeItem('user');
+    localStorage.removeItem('hasVehicles');
+  }
+
   async loginDriver(usuario: string, contrasena: string): Promise<any> {
     const res = await firstValueFrom(
       this.http.post(`${this.API_URL}/auth/login`, { Usuario: usuario, Contrasena: contrasena })

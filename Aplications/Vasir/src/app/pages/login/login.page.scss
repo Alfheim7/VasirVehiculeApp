@@ -1,0 +1,16 @@
+.auth-screen { --background: linear-gradient(180deg, var(--vasir-navy) 0 28%, var(--vasir-bg) 28%); }
+.auth-shell { max-width: 430px; min-height: 100%; margin: auto; padding: 24px 20px 40px; }
+.back-link { color: white; font-size: 2rem; text-decoration: none; }
+.brand-lockup { height: 150px; display: flex; align-items: center; justify-content: center; gap: 10px; color: #fff; font-size: 2.1rem; }
+.brand-lockup img { width: 58px; }
+.auth-card { background: #fff; border-radius: 24px; padding: 28px 20px 22px; box-shadow: var(--vasir-shadow); }
+h1 { color: var(--vasir-navy); text-align: center; margin: 0; font-size: 1.75rem; }
+p { color: var(--vasir-muted); text-align: center; margin: 8px 0 22px; }
+ion-item { --background: #f4f7fa; --border-radius: 12px; margin: 12px 0; }
+ion-icon { color: var(--vasir-blue); }
+.forgot { display: block; margin: 6px 0 18px auto; border: 0; color: var(--vasir-blue); background: transparent; }
+ion-button { --border-radius: 13px; min-height: 48px; font-weight: 700; }
+.divider { border-top: 1px solid #dce3e9; margin: 22px 0; text-align: center; height: 1px; }
+.divider span { position: relative; top: -11px; background: white; padding: 0 10px; color: #7c8a96; }
+.register-copy { margin: 22px 0 0; }
+.register-copy button { border: 0; background: none; color: var(--vasir-blue); font-weight: 700; }

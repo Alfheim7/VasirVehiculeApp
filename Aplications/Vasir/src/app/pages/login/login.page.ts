@@ -3,10 +3,7 @@ import { Router } from '@angular/router';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { AuthService } from '../../services/auth'; 
 import { FormsModule } from '@angular/forms';
-import { 
-  IonHeader, IonToolbar, IonTitle, IonContent, 
-  IonItem, IonInput, IonButton 
-} from '@ionic/angular/standalone';
+import { IonContent, IonItem, IonInput, IonButton, IonIcon } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +12,7 @@ import {
   standalone: true,
   imports: [
     FormsModule,
-    IonHeader, IonToolbar, IonTitle, IonContent, 
-    IonItem, IonInput, IonButton
+    IonContent, IonItem, IonInput, IonButton, IonIcon
   ]
 })
 export class LoginPage implements OnInit {
@@ -87,6 +83,11 @@ export class LoginPage implements OnInit {
 
   goToRegister() {
     this.router.navigate(['/register']);
+  }
+
+  enterDemo() {
+    this.authService.startDemoSession();
+    this.router.navigate(['/home']);
   }
 
   async showToast(msg: string, color: 'success' | 'danger' | 'warning') {

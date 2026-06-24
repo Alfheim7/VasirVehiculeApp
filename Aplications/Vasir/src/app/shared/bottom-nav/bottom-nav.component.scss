@@ -1,0 +1,10 @@
+:host { display: block; }
+.bottom-nav {
+  position: fixed; z-index: 20; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: min(100%, 760px); min-height: 76px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  display: grid; grid-template-columns: repeat(4, 1fr); background: var(--vasir-navy);
+  border-radius: 28px 28px 0 0; box-shadow: 0 -8px 24px rgba(2, 39, 69, .18);
+}
+a { color: #c7d6e2; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: .76rem; padding: 6px; border-radius: 18px; }
+ion-icon { font-size: 1.55rem; }
+a.active { color: #fff; background: linear-gradient(135deg, #12b8ee, #2486f0); }

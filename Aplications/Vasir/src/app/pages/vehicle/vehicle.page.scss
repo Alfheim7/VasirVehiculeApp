@@ -1,0 +1,10 @@
+.vehicle-hero { display: flex; align-items: center; gap: 18px; background: linear-gradient(145deg, #fff, #eaf7ff); }
+.vehicle-icon { min-width: 86px; height: 86px; display: grid; place-items: center; border-radius: 50%; background: #d8f1ff; color: var(--vasir-blue); }
+.vehicle-icon ion-icon { font-size: 3.2rem; }
+.vehicle-hero span, .vehicle-hero p { color: var(--vasir-muted); }
+.vehicle-hero h2 { margin: 4px 0; }.vehicle-hero p { margin: 0 0 8px; }
+.info-list { margin-top: 14px; }.info-list h2 { margin-top: 0; }
+.info-list div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid #e4eaef; }
+.info-list span { color: var(--vasir-muted); }
+.text-success { color: var(--vasir-green); }
+ion-button { margin-top: 14px; }

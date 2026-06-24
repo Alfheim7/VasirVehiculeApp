@@ -1,0 +1,8 @@
+.register-shell { max-width: 560px; }
+.register-intro { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.register-intro img { width: 72px; }
+.register-intro h1 { margin: 0 0 5px; font-size: 1.65rem; }
+.register-intro p { color: var(--vasir-muted); margin: 0; }
+ion-list-header { margin-top: 8px; color: var(--vasir-navy); font-weight: 800; }
+ion-button { margin-top: 20px; }
+.login-link { text-align: center; color: var(--vasir-muted); }.login-link a { color: var(--vasir-blue); font-weight: 700; text-decoration: none; }

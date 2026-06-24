@@ -34,4 +34,47 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+/* Vasir uses the light visual language defined in the approved mockups. */
+
+html { color-scheme: light; }
+*, *::before, *::after { box-sizing: border-box; }
+body { background: #e5eaee; color: var(--vasir-text); }
+ion-app { max-width: 760px; margin: 0 auto; background: var(--vasir-bg); box-shadow: 0 0 40px rgba(3, 38, 61, .12); }
+ion-content { --background: var(--vasir-bg); --color: var(--vasir-text); }
+ion-header ion-toolbar {
+  --background: var(--vasir-navy);
+  --color: #fff;
+  --min-height: 64px;
+  --padding-start: 12px;
+  --padding-end: 14px;
+}
+ion-header ion-title { font-weight: 800; text-align: center; font-size: 1.25rem; }
+ion-header ion-toolbar > ion-icon[slot="end"] { font-size: 2rem; margin-right: 10px; cursor: pointer; }
+ion-button { --border-radius: 13px; min-height: 48px; font-weight: 700; text-transform: none; }
+.page-shell { width: 100%; max-width: 700px; margin: 0 auto; padding: 22px 18px 34px; overflow-x: hidden; }
+.with-bottom-nav { padding-bottom: 120px; }
+.page-shell h1 { color: var(--vasir-text); font-weight: 800; letter-spacing: -.025em; }
+.page-shell h1, .page-shell h2, .page-shell p, .page-shell span, .page-shell strong { overflow-wrap: anywhere; }
+.summary-card, .status-card, .form-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--vasir-shadow);
+}
+.form-card ion-item {
+  --background: #f7f9fb;
+  --border-color: #dbe3ea;
+  --border-radius: 10px;
+  margin: 10px 0;
+}
+.section-heading { margin-bottom: 20px; }
+.section-heading h1 { margin: 4px 0 8px; font-size: 1.8rem; }
+.section-heading p { margin: 0; line-height: 1.45; }
+.fab { user-select: none; }
+
+ion-alert.vasir-alert .alert-wrapper, .alert-wrapper { border-radius: 20px !important; }
+
+@media (min-width: 761px) {
+  body { padding: 18px 0; }
+  ion-app { min-height: calc(100vh - 36px); border-radius: 26px; overflow: hidden; }
+}

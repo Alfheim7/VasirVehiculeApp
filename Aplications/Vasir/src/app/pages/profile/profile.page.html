@@ -1,0 +1,5 @@
+<ion-header class="ion-no-border"><ion-toolbar><ion-title>Perfil</ion-title></ion-toolbar></ion-header>
+<ion-content><main class="page-shell with-bottom-nav"><section class="profile-hero"><div class="avatar"><ion-icon name="person-circle-outline"></ion-icon></div><h1>{{ data.driverName }}</h1><p>Conductor Vasir</p></section>
+  <section class="summary-card profile-list"><a routerLink="/vehicle"><ion-icon name="car-sport-outline"></ion-icon><span>Mi vehículo</span><ion-icon name="chevron-forward-outline"></ion-icon></a><a routerLink="/documents"><ion-icon name="folder-open-outline"></ion-icon><span>Documentos</span><ion-icon name="chevron-forward-outline"></ion-icon></a><a routerLink="/history"><ion-icon name="time-outline"></ion-icon><span>Historial</span><ion-icon name="chevron-forward-outline"></ion-icon></a></section>
+  <ion-button expand="block" color="danger" fill="outline" (click)="logout()"><ion-icon name="log-out-outline" slot="start"></ion-icon>Cerrar sesión</ion-button>
+</main></ion-content><app-bottom-nav></app-bottom-nav>

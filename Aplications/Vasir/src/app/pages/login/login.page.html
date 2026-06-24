@@ -1,30 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>Vasir - Iniciar Sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
-  <div class="login-container">
-    <div class="ion-text-center ion-margin-bottom">
-      <img src="assets/shapes.svg" alt="Vasir Logo" style="width: 100px; height: auto;" />
-      <h2>Bienvenido</h2>
-    </div>
-
-    <ion-item lines="full" class="ion-margin-bottom">
-      <ion-input label="Usuario" labelPlacement="floating" type="text" [(ngModel)]="usuario" placeholder="Ingresa tu usuario"></ion-input>
-    </ion-item>
-
-    <ion-item lines="full" class="ion-margin-bottom">
-      <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="contrasena" placeholder="Ingresa tu contraseña"></ion-input>
-    </ion-item>
-
-    <ion-button expand="block" shape="round" (click)="onLogin()" class="ion-margin-top">
-      Iniciar Sesión
-    </ion-button>
-
-    <ion-button expand="block" fill="clear" color="secondary" (click)="goToRegister()">
-      ¿No tienes cuenta? Regístrate aquí
-    </ion-button>
-  </div>
+<ion-content [fullscreen]="true" class="auth-screen">
+  <main class="auth-shell">
+    <a class="back-link" href="/welcome">‹</a>
+    <div class="brand-lockup"><img src="assets/vasir-logo.svg" alt="" /><strong>Vasir</strong></div>
+    <section class="auth-card">
+      <h1>Iniciar sesión</h1>
+      <p>Accede a tu bitácora vehicular</p>
+      <ion-item lines="none">
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-input label="Usuario o correo" labelPlacement="floating" type="text" [(ngModel)]="usuario"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="contrasena"></ion-input>
+      </ion-item>
+      <button class="forgot" type="button">¿Olvidaste tu contraseña?</button>
+      <ion-button expand="block" (click)="onLogin()">Iniciar sesión</ion-button>
+      <div class="divider"><span>o</span></div>
+      <ion-button expand="block" fill="outline" (click)="enterDemo()">Explorar modo demostración</ion-button>
+      <p class="register-copy">¿Aún no tienes cuenta? <button type="button" (click)="goToRegister()">Crear cuenta</button></p>
+    </section>
+  </main>
 </ion-content>
